@@ -9,9 +9,7 @@ This work has been accepted for publication at 2024 IEEE International Conferenc
 
 ## Table of Contents
 
-- [Installation](#installation)
-- [Simulation Setup](#simulation-setup)
-- [Running](#running)
+- [Installation](#installation) [Simulation Setup](#simulation-setup) [Running](#running)
 - [Module Parameters](#module-parameters)
 - [Resources](#resources)
 - [Citation](#citation)
@@ -50,14 +48,14 @@ source devel/setup.bash
 
 ### Environments
 
-![Environment A](media/env_a_gazebo.png){:height="50%" width="50%"}
-![Environment B](media/env_b_gazebo.png){:height="50%" width="50%"}
+<img src="media/env_a_gazebo.png" width="500px" height="400px" alt="Environment A">
+<img src="media/env_b_gazebo.png" width="500px" height="400px" alt="Environment B">
 
 We tested our code in 2 Gazebo environments shown above. Originally, environment A is Map 1 from the our baselines repo [(PUTN)](https://github.com/jianzhuozhuTHU/putn). Environment B was chosen as a more challenging terrain with less flat areas. The [worlds/](worlds/) and [models/](models/) files are provided in this repo.
 
 ### Robot Platform
 
-![Husky Robot](media/husky.jpeg){:height="80%" width="80%"}
+<img src="media/husky.jpeg" width="50%" alt="Husky Robot">
 
 The [Clearpath Robotics](https://clearpathrobotics.com/) Husky robot was used during testing. We also include launch files to run our method with the Jackal robot. The LiDAR sensor we use is the Velodyne VLP-16.
 
