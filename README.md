@@ -36,6 +36,14 @@ pip install -r requirements.txt
 sudo apt install ros-noetic-tf2-sensor-msgs
 ```
 
+If you're interested in using environment B the model files are stored using [git large file store](https://git-lfs.com/). To pull from large file store use the following:
+
+```
+sudo apt install git-lfs
+git lfs install
+git lfs pull
+```
+
 3. Build workspace:
 
 ```
@@ -48,8 +56,10 @@ source devel/setup.bash
 
 ### Environments
 
-<img src="media/env_a_gazebo.png" width="375px" height="300px" alt="Environment A">
-<img src="media/env_b_gazebo.png" width="375px" height="300px" alt="Environment B">
+<p float="left">
+  <img src="media/env_a_gazebo.png" width="48%" height="300px" alt="Environment A">
+  <img src="media/env_b_gazebo.png" width="48%" height="300px" alt="Environment B">
+</p>
 
 We tested our code in 2 Gazebo environments shown above. Originally, environment A is Map 1 from the our baselines repo [(PUTN)](https://github.com/jianzhuozhuTHU/putn). Environment B was chosen as a more challenging terrain with less flat areas. The [worlds/](worlds/) and [models/](models/) files are provided in this repo.
 
