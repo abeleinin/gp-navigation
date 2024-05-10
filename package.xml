@@ -6,7 +6,7 @@
 
   <maintainer email="awl21802@gmail.com">Abe Leininger</maintainer>
 
-  <license>MIT</license>
+  <license>BSD 3-Clause</license>
 
   <buildtool_depend>catkin</buildtool_depend>
 

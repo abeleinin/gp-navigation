@@ -9,9 +9,11 @@ This work has been accepted for publication at 2024 IEEE International Conferenc
 
 ## Table of Contents
 
-- [Installation](#installation) [Simulation Setup](#simulation-setup) [Running](#running)
+- [Installation](#installation) 
+- [Simulation Setup](#simulation-setup) 
+- [Running](#running)
 - [Module Parameters](#module-parameters)
-- [Resources](#resources)
+- [Results](#results)
 - [Citation](#citation)
 
 ## Installation
@@ -73,7 +75,7 @@ The [Clearpath Robotics](https://clearpathrobotics.com/) Husky robot was used du
 
 We utilized the same A-LOAM implementation our baseline method [(PUTN)](https://github.com/jianzhuozhuTHU/putn) used, which is [HKUST-Aerial-Robotics/A-LOAM](https://github.com/HKUST-Aerial-Robotics/A-LOAM).
 
-Since, the repo was created prior to ROS Noetic's release, but we we're still able to make it work with the following dependency version. We fould that [ceres solve version 2.0.0](https://github.com/ceres-solver/ceres-solver/releases/tag/2.0.0) works and using the following [installation guide](http://ceres-solver.org/installation.html#linux).
+Since, the repo was created prior to ROS Noetic's release, but we we're still able to make it work with the following dependency version. We found that [ceres solve version 2.0.0](https://github.com/ceres-solver/ceres-solver/releases/tag/2.0.0) works and using the following [installation guide](http://ceres-solver.org/installation.html#linux).
 
 ## Running
 
@@ -114,12 +116,6 @@ pose:
     w: 1.0"
 ```
 
-## Results
-
-![Result Table](media/results.png)
-
-Our baseline comparison was [PUTN: A Plane-fitting based Uneven Terrain Navigation Framework](https://arxiv.org/abs/2203.04541). The authors released their code here on GitHub: [jianzhuozhuTHU/putn](https://github.com/jianzhuozhuTHU/putn). We we're able to out perfrom their method in Task 2, which involved traversing the more challenging Environment B.
-
 ## Module Parameters
 
 All the parameters for our method is stored in the [config/](config/) directory. **Click to expand** for parameter descriptions:
@@ -156,6 +152,11 @@ Path Planning configs located in [config/path_planning/](config/path_planning/).
 
 </details>
 
+## Results
+
+![Result Table](media/results.png)
+
+Our baseline comparison was [PUTN: A Plane-fitting based Uneven Terrain Navigation Framework](https://arxiv.org/abs/2203.04541). The authors released their code here on GitHub: [jianzhuozhuTHU/putn](https://github.com/jianzhuozhuTHU/putn). We we're able to out perform their method in Task 2, which involved traversing the more challenging Environment B.
 
 ## Citation
 
