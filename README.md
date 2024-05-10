@@ -48,8 +48,8 @@ source devel/setup.bash
 
 ### Environments
 
-<img src="media/env_a_gazebo.png" width="500px" height="400px" alt="Environment A">
-<img src="media/env_b_gazebo.png" width="500px" height="400px" alt="Environment B">
+<img src="media/env_a_gazebo.png" width="375px" height="300px" alt="Environment A">
+<img src="media/env_b_gazebo.png" width="375px" height="300px" alt="Environment B">
 
 We tested our code in 2 Gazebo environments shown above. Originally, environment A is Map 1 from the our baselines repo [(PUTN)](https://github.com/jianzhuozhuTHU/putn). Environment B was chosen as a more challenging terrain with less flat areas. The [worlds/](worlds/) and [models/](models/) files are provided in this repo.
 

@@ -1,0 +1,11 @@
+actionlib==1.14.0
+gpytorch==1.11
+numpy==1.17.4
+py3rosmsgs==1.18.2
+rosnumpy==0.0.5.2
+rospy==1.16.0
+sensor_msgs==1.13.1
+tf==1.13.2
+tf2_ros==0.7.7
+tf2_sensor_msgs==0.7.7
+torch==2.0.1

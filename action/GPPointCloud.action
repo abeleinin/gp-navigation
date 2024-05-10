@@ -1,0 +1,9 @@
+# GPPointCloud.action
+# Request
+---
+# Result
+sensor_msgs/PointCloud2 pc2_elevation
+sensor_msgs/PointCloud2 pc2_magnitude
+sensor_msgs/PointCloud2 pc2_uncertainty
+---
+# Feedback

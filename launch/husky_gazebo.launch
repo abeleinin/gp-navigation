@@ -1,0 +1,38 @@
+<launch>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+
+  <arg name="env" default="env_a"/>
+  <arg name="world_name" value="$(find gp_navigation)/worlds/$(arg env).world"/>
+
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="3"/>
+  <arg name="yaw" default="0"/>
+
+  <arg name="joystick" default="true"/>
+
+  <!-- Load Husky's description, controllers, and teleop nodes. -->
+  <include file="$(find husky_description)/launch/description.launch"/>
+  <include file="$(find husky_control)/launch/control.launch"/>
+  <include file="$(find husky_control)/launch/teleop.launch">
+    <arg name="joystick" value="$(arg joystick)"/>
+  </include>
+
+  <!-- Spawn Husky -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+        args="-urdf -model husky -param robot_description -x $(arg x) -y $(arg y) -z $(arg z) -R 0 -P 0 -Y $(arg yaw)"/>
+
+  <!-- Launch Gazebo with the specified world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="debug" value="0"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <arg name="world_name" value="$(arg world_name)"/>
+  </include>
+
+  <!-- Ground Truth -->
+  <node pkg="message_to_tf" type="message_to_tf" name="msg_to_tf" args="/ground_truth/state"/>
+</launch>

@@ -1,0 +1,17 @@
+rrt_star:
+  step_len: 0.5
+  iter_max: 1000
+  radius: 5.0
+  trav_limit: 0.3
+  replan_dist: 1.4
+critical:
+  slope: 0.436
+  flatness: 0.436
+  step_height: 0.3
+trav_weights:
+  step_height: 0.4
+  flatness: 0.4
+  slope: 0.2
+sub_goal_weights:
+  dist: 0.8
+  edge: 0.2

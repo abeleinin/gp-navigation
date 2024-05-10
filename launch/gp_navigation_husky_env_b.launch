@@ -1,0 +1,40 @@
+<!-- Gaussian Process-based Traversability Analysis for Terrain Mapless Navigation (ICRA 2024) -->
+<!-- Abe Leininger, Mahmoud Ali, Hassan Jardali, Lantao Liu -->
+
+<launch>
+    <!-- Gaussian Process Mapping Module -->
+    <node name="gp_mapping_module" pkg="gp_navigation" type="gp_mapping_module.py" output="screen">
+        <rosparam command="load" file="$(find gp_navigation)/config/gp_module/gp_module.yaml"/>
+    </node>
+
+    <!-- Path Planning Module -->
+    <node name="path_planning_module_client" pkg="gp_navigation" type="path_planning_module_client.py" output="screen">
+        <rosparam command="load" file="$(find gp_navigation)/config/gp_module/gp_module.yaml"/>
+        <rosparam command="load" file="$(find gp_navigation)/config/path_planning/husky_env_b.yaml"/>
+    </node>
+    <node name="path_planning_module_server" pkg="gp_navigation" type="path_planning_module_server.py" output="screen"/>
+
+    <!-- Differential Drive Controller -->
+    <node name="diff_drive_go_to_goal" pkg="diff_drive" type="diff_drive_go_to_goal" output="screen">
+        <param name="~rate" value="20"/>
+        <param name="~kP" value="1.6"/>
+        <param name="~kA" value="8.4"/>
+        <param name="~kB" value="-1.2"/>
+        <param name="~max_linear_speed" value="0.6"/>
+
+        <param name="~min_linear_speed" value="0.05"/>
+        <param name="~max_angular_speed" value="2.0"/>
+        <param name="~min_angular_speed" value="-1.0"/>
+        <param name="~linear_tolerance" value="0.25"/>
+        <param name="~angular_tolerance" value="4.0"/>
+        <param name="~forwardMovementOnly" value="false"/>
+        <remap from="odom" to="ground_truth/state"/>
+        <remap from="cmd_vel" to="/husky_velocity_controller/cmd_vel"/>
+    </node>
+
+    <!-- Transformations -->
+    <node name="transform_node" pkg="gp_navigation" type="transform_node.py"/>
+
+    <!-- Visualization -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find gp_navigation)/rviz_config/gp.rviz" required="true"/>
+</launch>

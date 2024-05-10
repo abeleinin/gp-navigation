@@ -1,0 +1,15 @@
+material env_a/Image
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ../textures/texture.jpg
+      }
+    }
+  }
+}
+ 

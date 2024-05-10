@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>gp_navigation</name>
+  <version>0.0.0</version>
+  <description>Gaussian Process-based traversability analysis for terrain mapless navigation</description>
+
+  <maintainer email="awl21802@gmail.com">Abe Leininger</maintainer>
+
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>gazebo_ros</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>actionlib_msgs</build_depend>
+
+  <build_export_depend>gazebo_ros</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>gazebo</exec_depend>
+
+  <export>
+    <gazebo_ros gazebo_media_path="${prefix}/models"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models"/>
+  </export>
+</package>

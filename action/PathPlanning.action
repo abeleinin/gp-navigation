@@ -1,0 +1,9 @@
+# PathPlanning.action
+# Request
+nav_msgs/Path path
+---
+# Result
+std_msgs/Bool achieved
+---
+# Feedback
+std_msgs/Bool final

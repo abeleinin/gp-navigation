@@ -1,0 +1,5 @@
+gp_map:
+  length_in_x: 10.0
+  length_in_y: 10.0
+  resolution: 0.2
+  inducing_points: 500

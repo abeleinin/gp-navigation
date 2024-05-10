@@ -1,0 +1,5 @@
+models/env_b/env_b_path_below_zero.dae filter=lfs diff=lfs merge=lfs -text
+models/env_b/env_b_path.dae filter=lfs diff=lfs merge=lfs -text
+models/env_b/materials filter=lfs diff=lfs merge=lfs -text
+models/env_b/model.config filter=lfs diff=lfs merge=lfs -text
+models/env_b/model.sdf filter=lfs diff=lfs merge=lfs -text
