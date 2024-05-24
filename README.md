@@ -38,13 +38,7 @@ pip install -r requirements.txt
 sudo apt install ros-noetic-tf2-sensor-msgs
 ```
 
-If you're interested in using environment B the model files are stored using [git large file store](https://git-lfs.com/). To pull from large file store use the following:
-
-```
-sudo apt install git-lfs
-git lfs install
-git lfs pull
-```
+If you're interested in using our environments, please download the model files from this [OneDrive link](https://indiana-my.sharepoint.com/:f:/g/personal/aleinin_iu_edu/Esf6rV39RNtPrzw9a7iT24cBjYHK_rlYWmthE26xXv_ZOw?e=mCygab) into the `gp-navigation` package.
 
 3. Build workspace:
 
