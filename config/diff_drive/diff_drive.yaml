@@ -1,0 +1,18 @@
+# control rate
+rate: 20
+
+# paramters/gains
+kP: 1.6
+kA: 8.4
+kB: -1.2
+
+# limits
+max_linear_speed: 0.6
+min_linear_speed: 0.05
+max_angular_speed: 2.0
+min_angular_speed: -1.0
+linear_tolerance: 0.25
+angular_tolerance: 4.0
+
+# mode 
+forwardMovementOnly: false

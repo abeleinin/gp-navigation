@@ -38,9 +38,9 @@ pip install -r requirements.txt
 sudo apt install ros-noetic-tf2-sensor-msgs
 ```
 
-If you're interested in using our environments, please download the model files from this [OneDrive link](https://indiana-my.sharepoint.com/:f:/g/personal/aleinin_iu_edu/Esf6rV39RNtPrzw9a7iT24cBjYHK_rlYWmthE26xXv_ZOw?e=mCygab) into the `gp-navigation` package directory.
+3. Download the model files for simulation environments a and b from this [OneDrive link](https://indiana-my.sharepoint.com/:f:/g/personal/aleinin_iu_edu/Esf6rV39RNtPrzw9a7iT24cBjYHK_rlYWmthE26xXv_ZOw?e=mCygab) into the `gp-navigation` package directory.
 
-3. Build workspace:
+4. Build workspace:
 
 ```
 cd ../..
@@ -57,7 +57,7 @@ source devel/setup.bash
   <img src="media/env_b_gazebo.png" width="48%" height="300px" alt="Environment B">
 </p>
 
-We tested our code in 2 Gazebo environments shown above. Originally, environment A is Map 1 from the our baselines repo [(PUTN)](https://github.com/jianzhuozhuTHU/putn). Environment B was chosen as a more challenging terrain with less flat areas. The [worlds/](worlds/) and [models/](models/) files are provided in this repo.
+We tested our code in 2 Gazebo environments shown above. Originally, environment A is Map 1 from the our baselines repo [(PUTN)](https://github.com/jianzhuozhuTHU/putn). Environment B was chosen as a more challenging terrain with less flat areas. 
 
 ### Robot Platform
 
@@ -65,10 +65,27 @@ We tested our code in 2 Gazebo environments shown above. Originally, environment
 
 The [Clearpath Robotics](https://clearpathrobotics.com/) Husky robot was used during testing. We also include launch files to run our method with the Jackal robot. The LiDAR sensor we use is the Velodyne VLP-16.
 
-### A-LOAM
+### Groundtruth localization in Gazebo
+To use the ground truth localization for Husky in Gazebo, add the `p3d_base_controller` plugin in the Husky xacro file `husky_description/urdf/husky.urdf.xacro`
+```
+ <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>60.0</updateRate>
+      <bodyName>base_link</bodyName>
+      <topicName>ground_truth/state</topicName>
+      <gaussianNoise>0.01</gaussianNoise>
+      <frameName>world</frameName>
+      <xyzOffsets>0 0 0</xyzOffsets>
+      <rpyOffsets>0 0 0</rpyOffsets>
+    </plugin>
 
-We utilized the same A-LOAM implementation our baseline method [(PUTN)](https://github.com/jianzhuozhuTHU/putn) used, which is [HKUST-Aerial-Robotics/A-LOAM](https://github.com/HKUST-Aerial-Robotics/A-LOAM).
+  </gazebo>
+```
+- Note: you need to add the `p3d_base_controller` plugin into `jackal.urdf.xacro` file if you are using Jackal instead of Husky.
 
+### A-LOAM localization
+
+We also tested our method with [aloam](https://github.com/HKUST-Aerial-Robotics/A-LOAM) localization to make a fair comparison with our baseline method [(PUTN)](https://github.com/jianzhuozhuTHU/putn).
 Since, the repo was created prior to ROS Noetic's release, but we we're still able to make it work with the following dependency version. We found that [ceres solve version 2.0.0](https://github.com/ceres-solver/ceres-solver/releases/tag/2.0.0) works and using the following [installation guide](http://ceres-solver.org/installation.html#linux).
 
 ## Running
