@@ -16,18 +16,7 @@
 
     <!-- Differential Drive Controller -->
     <node name="diff_drive_go_to_goal" pkg="diff_drive" type="diff_drive_go_to_goal" output="screen">
-        <param name="~rate" value="20"/>
-        <param name="~kP" value="1.6"/>
-        <param name="~kA" value="8.4"/>
-        <param name="~kB" value="-1.2"/>
-        <param name="~max_linear_speed" value="0.7"/>
-
-        <param name="~min_linear_speed" value="0.05"/>
-        <param name="~max_angular_speed" value="2.0"/>
-        <param name="~min_angular_speed" value="-1.0"/>
-        <param name="~linear_tolerance" value="0.25"/>
-        <param name="~angular_tolerance" value="4.0"/>
-        <param name="~forwardMovementOnly" value="false"/>
+        <rosparam command="load" file="$(find gp_navigation)/config/diff_drive/diff_drive.yaml"/>
         <remap from="odom" to="ground_truth/state"/>
         <remap from="cmd_vel" to="/husky_velocity_controller/cmd_vel"/>
     </node>
