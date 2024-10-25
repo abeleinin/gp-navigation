@@ -68,18 +68,18 @@ The [Clearpath Robotics](https://clearpathrobotics.com/) Husky robot was used du
 ### Groundtruth localization in Gazebo
 To use the ground truth localization for Husky in Gazebo, add the `p3d_base_controller` plugin in the Husky xacro file `husky_description/urdf/husky.urdf.xacro`
 ```
- <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
-      <alwaysOn>true</alwaysOn>
-      <updateRate>60.0</updateRate>
-      <bodyName>base_link</bodyName>
-      <topicName>ground_truth/state</topicName>
-      <gaussianNoise>0.01</gaussianNoise>
-      <frameName>world</frameName>
-      <xyzOffsets>0 0 0</xyzOffsets>
-      <rpyOffsets>0 0 0</rpyOffsets>
-    </plugin>
-
-  </gazebo>
+<gazebo>
+  <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+    <alwaysOn>true</alwaysOn>
+    <updateRate>60.0</updateRate>
+    <bodyName>base_link</bodyName>
+    <topicName>ground_truth/state</topicName>
+    <gaussianNoise>0.01</gaussianNoise>
+    <frameName>world</frameName>
+    <xyzOffsets>0 0 0</xyzOffsets>
+    <rpyOffsets>0 0 0</rpyOffsets>
+  </plugin>
+</gazebo>
 ```
 - Note: you need to add the `p3d_base_controller` plugin into `jackal.urdf.xacro` file if you are using Jackal instead of Husky.
 
